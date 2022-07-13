@@ -75,16 +75,17 @@ select_event = st.sidebar.selectbox('How do you want to find data?',
 
 if select_event == 'By Category':
     # -- Set a GPS time:        
-    str_t0 = st.sidebar.text_input('GPS Time', '1126259462.4')    # -- GW150914
+    str_t0 = st.sidebar.selectbox('Category',['noaa-goes16/ABI-L1b-RadC', 'noaa-goes16/ABI-L1b-RadF', 'noaa-goes16/ABI-L1b-RadM','noaa-goes16/ABI-L2-ACHAC', 'noaa-goes16/ABI-L2-ACHAF',
+'noaa-goes16/ABI-L2-ACHAM',
+'noaa-goes16/ABI-L2-ACHTF',
+'noaa-goes16/ABI-L2-ACHTM',
+'noaa-goes16/ABI-L2-ACMC',
+'noaa-goes16/ABI-L2-ACMF',
+'noaa-goes16/ABI-L2-ACMM',
+'noaa-goes16/ABI-L2-ACTPC',
+'noaa-goes16/ABI-L2-ACTPF',
+'noaa-goes16/ABI-L2-ACTPM',])    # -- GW150914
     t0 = float(str_t0)
-
-    st.sidebar.markdown("""
-    Example times in the H1 detector:
-    * 1126259462.4    (GW150914) 
-    * 1187008882.4    (GW170817) 
-    * 1128667463.0    (hardware injection)
-    * 1132401286.33   (Koi Fish Glitch) 
-    """)
 
 else:
     chosen_event = st.sidebar.selectbox('By Satellite', eventlist)
