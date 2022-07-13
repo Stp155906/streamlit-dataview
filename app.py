@@ -85,7 +85,7 @@ if select_event == 'By Category':
 'noaa-goes16/ABI-L2-ACTPC',
 'noaa-goes16/ABI-L2-ACTPF',
 'noaa-goes16/ABI-L2-ACTPM',])    # -- GW150914
-    t0 = float(str_t0)
+   
 
 else:
     chosen_event = st.sidebar.selectbox('By Satellite', eventlist)
