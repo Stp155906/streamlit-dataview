@@ -30,6 +30,15 @@ mpl.use("agg")
 from matplotlib.backends.backend_agg import RendererAgg
 _lock = RendererAgg.lock
 
+from st_aggrid import AgGrid
+import pandas as pd
+
+df = pd.read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv')
+AgGrid(df)
+
+
+
+
 
 # -- Set page config
 apptitle = 'GW Quickview'
@@ -85,7 +94,7 @@ if select_event == 'By Category':
 'noaa-goes16/ABI-L2-ACTPC',
 'noaa-goes16/ABI-L2-ACTPF',
 'noaa-goes16/ABI-L2-ACTPM',])    # -- GW150914
-   
+    
 
 else:
     chosen_event = st.sidebar.selectbox('By Satellite', eventlist)
