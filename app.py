@@ -71,7 +71,7 @@ eventlist = get_eventlist()
 
 #-- Set time by GPS or event
 select_event = st.sidebar.selectbox('How do you want to find data?',
-                                    ['By Category', 'By Satalite', 'By Source'])
+                                    ['By Category', 'By Satellite', 'By Source'])
 
 if select_event == 'By Category':
     # -- Set a GPS time:        
@@ -87,7 +87,7 @@ if select_event == 'By Category':
     """)
 
 else:
-    chosen_event = st.sidebar.selectbox('By Satalite', eventlist)
+    chosen_event = st.sidebar.selectbox('By Satellite', eventlist)
     t0 = datasets.event_gps(chosen_event)
     detectorlist = list(datasets.event_detectors(chosen_event))
     detectorlist.sort()
