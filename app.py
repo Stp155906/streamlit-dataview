@@ -43,7 +43,7 @@ st.set_page_config(page_title=apptitle, page_icon=":eyeglasses:")
 detectorlist = ['H1','L1', 'V1']
 
 # Title the app
-st.title('Gravitational Wave Quickview')
+st.title('Time Series Data')
 
 st.markdown("""
  * Use the menu at left to select data and set plot parameters
@@ -74,7 +74,10 @@ eventlist = get_eventlist()
 
 #-- Set time by GPS or event
 select_event = st.sidebar.selectbox('How do you want to find data?',
-                                    ['By Category', 'By Satellite', 'By Source'])
+                                    ['By Date','By Category', 'By Satellite', 'By Source'])
+
+select_event_two = st.sidebar.selectbox('Select Location',
+                                    ['By coordinates'])
 
 if select_event == 'By Category':
     # -- Set a GPS time:        
