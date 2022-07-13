@@ -71,7 +71,7 @@ eventlist = get_eventlist()
 
 #-- Set time by GPS or event
 select_event = st.sidebar.selectbox('How do you want to find data?',
-                                    ['By event name', 'By GPS'])
+                                    ['By Category', 'By Satalite', 'By Source'])
 
 if select_event == 'By GPS':
     # -- Set a GPS time:        
