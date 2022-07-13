@@ -73,7 +73,7 @@ eventlist = get_eventlist()
 select_event = st.sidebar.selectbox('How do you want to find data?',
                                     ['By Category', 'By Satalite', 'By Source'])
 
-if select_event == 'By GPS':
+if select_event == 'By Category':
     # -- Set a GPS time:        
     str_t0 = st.sidebar.text_input('GPS Time', '1126259462.4')    # -- GW150914
     t0 = float(str_t0)
@@ -87,7 +87,15 @@ if select_event == 'By GPS':
     """)
 
 else:
-    chosen_event = st.sidebar.selectbox('Select Event', eventlist)
+    chosen_event = st.sidebar.selectbox('By Satalite', eventlist)
+    t0 = datasets.event_gps(chosen_event)
+    detectorlist = list(datasets.event_detectors(chosen_event))
+    detectorlist.sort()
+    st.subheader(chosen_event)
+    st.write('GPS:', t0)
+    
+ else:
+    chosen_event = st.sidebar.selectbox('By Source', eventlist)
     t0 = datasets.event_gps(chosen_event)
     detectorlist = list(datasets.event_detectors(chosen_event))
     detectorlist.sort()
@@ -104,6 +112,7 @@ else:
             eventurl = 'https://gw-osc.org/eventapi/html/event/{}'.format(chosen_event)
             st.markdown('Event page: {}'.format(eventurl))
             st.write('\n')
+      
     except:
         pass
 
